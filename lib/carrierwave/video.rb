@@ -62,7 +62,7 @@ module CarrierWave
       with_trancoding_callbacks do
         if progress
           file.transcode(tmp_path, @options.format_params, @options.encoder_options) {
-              |value| progress.call(value)
+              |value| progress.call(value, @options)
           }
         else
           file.transcode(tmp_path, @options.format_params, @options.encoder_options)
